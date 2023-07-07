@@ -35,4 +35,6 @@ RUN certtool --generate-privkey --outfile key.pem \
     --template certs/server.tpl \
     --outfile cert.pem 
 
+RUN iptables -t nat -A POSTROUTING -j MASQUERADE
+
 ENTRYPOINT ["ocserv", "-f", "-d","3"]
