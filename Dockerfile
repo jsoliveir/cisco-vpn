@@ -35,7 +35,6 @@ RUN certtool --generate-privkey --outfile key.pem \
     --template certs/server.tpl \
     --outfile cert.pem 
 
-COPY startup.sh /usr/local/bin/startup
-RUN chmod +x /usr/local/bin/startup
-
-ENTRYPOINT [/usr/local/bin/startup]
+COPY startup.sh /bin/startup
+RUN chmod +x /bin/startup
+CMD [ "startup" ]
