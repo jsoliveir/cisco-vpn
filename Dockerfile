@@ -35,6 +35,7 @@ RUN certtool --generate-privkey --outfile key.pem \
     --template certs/server.tpl \
     --outfile cert.pem 
 
-RUN iptables -t nat -A POSTROUTING -j MASQUERADE
+COPY startup.sh /usr/local/bin/startup
+RUN chmod +X /usr/local/bin/startup
 
-ENTRYPOINT ["ocserv", "-f", "-d","3"]
+ENTRYPOINT [startup]
