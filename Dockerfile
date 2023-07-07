@@ -38,4 +38,4 @@ RUN certtool --generate-privkey --outfile key.pem \
 COPY startup.sh /usr/local/bin/startup
 RUN chmod +X /usr/local/bin/startup
 
-ENTRYPOINT [startup]
+ENTRYPOINT [/usr/local/bin/startup]
