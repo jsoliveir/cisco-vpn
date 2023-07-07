@@ -1,16 +1,14 @@
 services:
   server:
     container_name: vpn      
+    privileged: true
     build: .
     ports:
       - 443:443/tcp
       - 443:443/udp
     cap_add:
       - NET_ADMIN
-    privileged: true
     volumes:
-      - ./server.conf:/etc/ocserv/ocserv.conf
-      - ./credentials:/etc/ocserv/passwd
-      - ./data:/etc/ocserv/data
+      - ./config:/etc/ocserv/
 
     
