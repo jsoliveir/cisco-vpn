@@ -19,7 +19,7 @@ RUN buildDeps="xz openssl gcc autoconf make linux-headers"; \
 	&& rm -rf ./$OC_FILE && apk del --purge $buildDeps
 
 WORKDIR /etc/ssl
-COPY templates/ .
+COPY ssl/ .
 # generate [ca]
 RUN certtool --generate-privkey --outfile /etc/ssl/ca-key.pem \
     && certtool \
